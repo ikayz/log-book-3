@@ -1,19 +1,33 @@
 package com.ikayz.irate_rest;// Created by ikayz on 16/11/2020
 
 import android.widget.RatingBar;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 public class RestaurantHelperClass {
-    String restaurantName, dateTime, mealPrice, reporterName;
-    RatingBar serviceRating, cleanlinessRating, foodQualityRating;
+    String restaurantName;
+    String dateTime;
+    String mealPrice;
+    String reporterName;
+    String notes;
+    int timeDate;
+    Float  serviceRating, cleanlinessRating, foodQualityRating;
+    Spinner restaurantType;
 
     public RestaurantHelperClass() {
     }
 
-    public RestaurantHelperClass(String restaurant, String date, String price, String reporter) {
+    public RestaurantHelperClass(String restaurant, String date, String price, String reporter,
+                                 Float service, Float cleanliness, Float food, int time, String notes) {
         this.restaurantName = restaurant;
         this.dateTime = date;
         this.mealPrice = price;
         this.reporterName = reporter;
+        this.serviceRating = service;
+        this.cleanlinessRating = cleanliness;
+        this.foodQualityRating = food;
+        this.timeDate = time;
+        this.notes = notes;
     }
 
     public String getRestaurantName() {
@@ -48,27 +62,44 @@ public class RestaurantHelperClass {
         this.reporterName = reporterName;
     }
 
-    public RatingBar getServiceRating() {
+    public Float getServiceRating() {
         return serviceRating;
     }
 
-    public void setServiceRating(RatingBar serviceRating) {
+    public void setServiceRating(Float serviceRating) {
         this.serviceRating = serviceRating;
     }
 
-    public RatingBar getCleanlinessRating() {
+    public Float getCleanlinessRating() {
         return cleanlinessRating;
     }
 
-    public void setCleanlinessRating(RatingBar cleanlinessRating) {
+    public void setCleanlinessRating(Float cleanlinessRating) {
         this.cleanlinessRating = cleanlinessRating;
     }
 
-    public RatingBar getFoodQualityRating() {
+    public Float getFoodQualityRating() {
         return foodQualityRating;
     }
 
-    public void setFoodQualityRating(RatingBar foodQualityRating) {
+    public void setFoodQualityRating(Float foodQualityRating) {
         this.foodQualityRating = foodQualityRating;
     }
+
+    public int getTimeDate() {
+        return timeDate;
+    }
+
+    public void setTimeDate(int timeDate) {
+        this.timeDate = timeDate;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
 }

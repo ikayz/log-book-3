@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Spinner;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     RatingBar cleanlinessRating;
     RatingBar foodQualityRating;
     EditText reporterName;
+    DatePicker timeDate;
+    EditText notes;
 
     FirebaseDatabase mDatabase;
     DatabaseReference mDatabaseReference;
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         restaurantName  = (EditText) findViewById(R.id.restaurant_name);
         dateTime = (EditText) findViewById(R.id.date_time);
         mealPrice = (EditText) findViewById(R.id.price);
@@ -44,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         cleanlinessRating = (RatingBar) findViewById(R.id.rating_bar_cleanliness);
         foodQualityRating = (RatingBar) findViewById(R.id.rating_bar);
         reporterName = (EditText) findViewById(R.id.edit_reporter);
+        timeDate = findViewById(R.id.DatePickerDOB);
+        notes = findViewById(R.id.tv_notes_);
 
         Spinner spinner = findViewById(R.id.restaurant_spinner);
         Button submitReview = findViewById(R.id.btn_submit);
@@ -93,8 +99,14 @@ public class MainActivity extends AppCompatActivity {
                     String date = dateTime.getText().toString();
                     String price = mealPrice.getText().toString();
                     String reporter = reporterName.getText().toString();
+                    Float service = serviceRating.getRating();
+                    Float cleanliness = cleanlinessRating.getRating();
+                    Float food = foodQualityRating.getRating();
+                    int time = timeDate.getYear();
+                    String note = notes.getText().toString();
 
-                    RestaurantHelperClass helperClass = new RestaurantHelperClass(restaurant, date, price, reporter);
+                    RestaurantHelperClass helperClass = new RestaurantHelperClass(
+                            restaurant, date, price, reporter, service, cleanliness, food, time, note);
                     mDatabaseReference.setValue(helperClass);
                     Toast.makeText(MainActivity.this, "Rating submitted successfully", Toast.LENGTH_SHORT).show();
                 } else {

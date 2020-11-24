@@ -4,6 +4,7 @@ import android.widget.RatingBar;
 
 public class RestaurantHelperClass {
     String restaurantName, dateTime, mealPrice, reporterName;
+    RatingBar serviceRating, cleanlinessRating, foodQualityRating;
 
     public RestaurantHelperClass() {
     }
@@ -45,5 +46,29 @@ public class RestaurantHelperClass {
 
     public void setReporterName(String reporterName) {
         this.reporterName = reporterName;
+    }
+
+    public RatingBar getServiceRating() {
+        return serviceRating;
+    }
+
+    public void setServiceRating(RatingBar serviceRating) {
+        this.serviceRating = serviceRating;
+    }
+
+    public RatingBar getCleanlinessRating() {
+        return cleanlinessRating;
+    }
+
+    public void setCleanlinessRating(RatingBar cleanlinessRating) {
+        this.cleanlinessRating = cleanlinessRating;
+    }
+
+    public RatingBar getFoodQualityRating() {
+        return foodQualityRating;
+    }
+
+    public void setFoodQualityRating(RatingBar foodQualityRating) {
+        this.foodQualityRating = foodQualityRating;
     }
 }
